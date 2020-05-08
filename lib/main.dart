@@ -40,60 +40,76 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Fetch Data Example'),
+          backgroundColor: Colors.amberAccent,
+          centerTitle: true,
+          title: Text('Analise das notas dos filmes'),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'Quantidade',
-                style: TextStyle(
-                  fontSize: 25,
-                )
+        body: Row(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(40.0),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Quantidade',
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      )
+                    ),
+                    SizedBox(height: 20,),
+                    Text(
+                      '${dados['count'] == null ? 0 : dados['count']}',
+                      style: TextStyle(
+                        fontSize: 20,
+                      )
+                    ),
+                    SizedBox(height: 30,),
+                    Text(
+                      'Media',
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      )
+                    ),
+                    SizedBox(height: 20,),
+                    Text(
+                      '${dados['mean'] == null ? 0 : dados['mean']}',
+                      style: TextStyle(
+                        fontSize: 20,
+                      )
+                    ),
+                    SizedBox(height: 30,),
+                    Text(
+                      'Mediana',
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      )
+                    ),
+                    SizedBox(height: 20,),
+                    Text(
+                      '${dados['50%'] == null? 0 : dados['50%']}',
+                      style: TextStyle(
+                        fontSize: 20,
+                      )
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: 20,),
-              Text(
-                '${dados['count'] == null ? 0 : dados['count']}',
-                style: TextStyle(
-                  fontSize: 20,
-                )
-              ),
-              SizedBox(height: 30,),
-              Text(
-                'Media',
-                style: TextStyle(
-                  fontSize: 25,
-                )
-              ),
-              SizedBox(height: 20,),
-              Text(
-                '${dados['mean'] == null ? 0 : dados['mean']}',
-                style: TextStyle(
-                  fontSize: 20,
-                )
-              ),
-              SizedBox(height: 30,),
-              Text(
-                'Mediana',
-                style: TextStyle(
-                  fontSize: 25,
-                )
-              ),
-              SizedBox(height: 20,),
-              Text(
-                '${dados['50%'] == null? 0 : dados['50%']}',
-                style: TextStyle(
-                  fontSize: 20,
-                )
-              ),
-            ],
-          )
+            ),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: getData,
           child: Icon(
-            Icons.add
+            Icons.replay
           ),
         ),
       ),
